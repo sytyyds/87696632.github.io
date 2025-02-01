@@ -1,0 +1,19 @@
+name: 自动更新博客
+on:
+  schedule:
+    - cron: '0 20 * * *'  # 每天20点自动运行
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 拉取代码
+      uses: actions/checkout@v2
+    - name: 生成新文章
+      run: |
+        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
+        python generate_post.py 
+    - name: 推送更新
+      uses: github-actions-x/commit@v2
+      with:
+        files: _posts/*
+        message: "自动更新：$(date +'%Y-%m-%d')"
