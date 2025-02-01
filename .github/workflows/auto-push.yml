@@ -1,7 +1,7 @@
 name: 自动更新博客
    on:
      schedule:
-       - cron: '0 20 * * *'  # 每天20点运行
+       - cron: '0 8 * * *'  # 每天20点运行
    jobs:
      build:
        runs-on: ubuntu-latest
